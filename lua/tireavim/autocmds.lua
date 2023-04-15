@@ -2,7 +2,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.api.nvim_create_user_command
 
-local utils = require "tireanvim.utils"
+local utils = require "tireavim.utils"
 local is_available = utils.is_available
 
 autocmd("TextYankPost", {

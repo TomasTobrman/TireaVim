@@ -1,4 +1,4 @@
-local utils = require "tireanvim.utils"
+local utils = require "tireavim.utils"
 local is_available = utils.is_available
 
 local maps = { n = {}, i = {}, v = {}, t = {} }

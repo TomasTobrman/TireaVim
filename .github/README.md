@@ -37,7 +37,7 @@ $ rm -rf ~/.local/state/nvim
 #### Clone this repository and run NeoVim
 
 ``` bash
-$ git clone --depth 1 https://github.com/TomasTobrman/TireaNvim ~/.config/nvim
+$ git clone --depth 1 https://github.com/TomasTobrman/TireaVim ~/.config/nvim
 $ nvim
 ```
 
