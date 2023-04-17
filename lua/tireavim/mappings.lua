@@ -33,4 +33,14 @@ maps.n["<C-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" }
 maps.n["<C-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" }
 maps.n["<C-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" }
 
+-- Comment
+if is_available "Comment.nvim" then
+	maps.n["<leader>/"] = {
+		function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+		desc = "Comment line",
+	}
+	maps.v["<leader>/"] =
+		{ "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
+end
+
 utils.set_mappings(maps)
