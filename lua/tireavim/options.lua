@@ -5,8 +5,6 @@ if vim.fn.has "nvim-0.9" == 1 then
 	vim.opt.diffopt:append "linematch:60"
 end
 
-vim.cmd "colorscheme kanagawa"
-
 local options = {
 	opt = {
 		clipboard = "unnamedplus",
