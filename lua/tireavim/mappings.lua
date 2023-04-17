@@ -9,7 +9,8 @@ local sections = {
 
 -- Normal --
 -- Standard Operations
-maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
+maps.n[";"] = { ":", desc = "Enter Command" }
+maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Write" }
 maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
 maps.n["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" }
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
