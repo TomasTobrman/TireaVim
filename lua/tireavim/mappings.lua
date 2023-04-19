@@ -5,6 +5,7 @@ local maps = { n = {}, i = {}, v = {}, t = {} }
 
 local sections = {
   p = { desc = "Packages" },
+  f = { desc = "Find" },
 }
 
 -- Normal --
@@ -42,6 +43,12 @@ if is_available "Comment.nvim" then
 	}
 	maps.v["<leader>/"] =
 		{ "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
+end
+
+-- Telescope
+if is_available "telescope.nvim" then
+	maps.n["<leader>f"] = sections.f
+	maps.n["<leader>ff"] = { function() require('telescope.builtin').find_files() end, desc = "Find Files" }
 end
 
 utils.set_mappings(maps)
