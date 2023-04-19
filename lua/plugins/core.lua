@@ -6,6 +6,7 @@ return {
 		config = function() vim.cmd([[colorscheme kanagawa]]) end,
 	},
 	"nvim-lua/plenary.nvim",
+	"nvim-tree/nvim-web-devicons",
 	{ "famiu/bufdelete.nvim", cmd = { "Bdelete", "Bwipeout" } },
 	{ "max397574/better-escape.nvim", event = "InsertCharPre", opts = { timeout = 300 } },
 	{
