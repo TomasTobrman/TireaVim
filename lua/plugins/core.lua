@@ -3,7 +3,7 @@ return {
 		"rebelot/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function() vim.cmd([[colorscheme kanagawa]]) end,
+		config = function() require "kanagawa".load("wave") end,
 	},
 	"nvim-lua/plenary.nvim",
 	"nvim-tree/nvim-web-devicons",
@@ -20,9 +20,10 @@ return {
 	{
 		"akinsho/toggleterm.nvim",
 		cmd = { "ToggleTerm", "TermExec" },
+		keys = "<f7>",
 		opts = {
 			size = 10,
-			open_mapping = [[<F7>]],
+			open_mapping = "<f7>",
 			shading_factor = 2,
 			direction = "float",
 			float_opts = {
