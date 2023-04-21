@@ -8,14 +8,15 @@ return function(_, _)
 		}
 	end
 
+	local icons = require("tireavim.icons").diagnostics
 	local signs = {
-		Error = " ",
-		Warn = " ",
-		Hint = " ",
-		Info = " "
-	} 
-	for type, icon in pairs(signs) do
-		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
+		{ name = "DiagnosticSignError", text = icons.Error,			texthl = "DiagnosticSignError" },
+		{ name = "DiagnosticSignWarn",	text = icons.Warning,		texthl = "DiagnosticSignWarn" },
+		{ name = "DiagnosticSignHint",	text = icons.Hint,			texthl = "DiagnosticSignHint" },
+		{ name = "DiagnosticSignInfo",	text = icons.Information,	texthl = "DiagnosticSignInfo" },
+	}
+
+	for _, sign in ipairs(signs) do
+		vim.fn.sign_define(sign.name, sign)
 	end
 end
