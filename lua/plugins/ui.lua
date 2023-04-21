@@ -2,7 +2,7 @@ return {
 	{ "nvim-tree/nvim-web-devicons", },
 	{
 		"nvim-lualine/lualine.nvim",
-		lazy = false,
+		event = "VimEnter",
 		opts = {
 			options = {
 				globalstatus = false,
@@ -37,7 +37,7 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		lazy = false,
+		event = "VimEnter",
 		opts = {},
 	},
 	{

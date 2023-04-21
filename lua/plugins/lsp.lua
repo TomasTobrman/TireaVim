@@ -7,7 +7,7 @@ return {
 				cmd = { "LspInstall", "LspUninstall" },
 			},
 		},
-		event = "BufEnter",
+		event = "BufRead",
 		config = require "plugins.configs.lspconfig",
 	},
 	{
@@ -19,6 +19,6 @@ return {
 				opts = { handlers = {} },
 			},
 		},
-		event = "BufEnter",
+		event = "BufRead",
 	},
 }
