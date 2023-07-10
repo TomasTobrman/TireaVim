@@ -6,6 +6,7 @@ local maps = { n = {}, i = {}, v = {}, t = {} }
 local sections = {
 	p = { desc = "Packages" },
 	f = { desc = "Find" },
+	t = { desc = "File Tree" },
 }
 
 -- Normal --
@@ -38,9 +39,16 @@ maps.n["<C-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split righ
 -- Telescope
 if is_available "telescope.nvim" then
 	maps.n["<leader>f"] = sections.f
-	maps.n["<leader>ff"] = { function() require('telescope.builtin').find_files() end, desc = "Find Files" }
+	maps.n["<leader>ff"] = { function() require('telescope.builtin').find_files() end, desc = "Files" }
 	maps.n["<leader>fb"] = { function() require('telescope.builtin').buffers() end, desc = "Buffers" }
 	maps.n["<leader>fg"] = { function() require('telescope.builtin').git_commits() end, desc = "Git Commits" }
+end
+
+-- Nvim Tree
+if is_available "nvim-tree.lua" then
+	maps.n["<leader>t"] = sections.t
+	maps.n["<leader>tt"] = { function() require('nvim-tree.api').tree.toggle() end, desc = "Toggle" }
+	maps.n["<leader>tf"] = { function() require('nvim-tree.api').tree.focus() end, desc = "Focus" }
 end
 
 -- Comment

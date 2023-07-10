@@ -11,6 +11,17 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = {
+			"NvimTreeOpen",
+			"NvimTreeToggle",
+			"NvimTreeFocus",
+			"NvimTreeFindFileToggle",
+		},
+		config = require "plugins.configs.nvim-tree",
+	},
+	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "VeryLazy",
