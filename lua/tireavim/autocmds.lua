@@ -8,3 +8,4 @@ autocmd("TextYankPost", {
 	pattern = "*",
 	callback = function() vim.highlight.on_yank() end,
 })
+

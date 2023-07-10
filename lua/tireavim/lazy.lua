@@ -4,20 +4,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-	{
-		"olimorris/onedarkpro.nvim",
-		-- "shaunsingh/nord.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme onedark]])
-			-- vim.cmd([[colorscheme nord]])
-		end,
-	},
-}
-
-require("lazy").setup(plugins, {
+require("lazy").setup({
+	spec = { import = "plugins" },
 	defaults = { lazy = true },
 	install = { colorscheme = { "onedark" }, },
 	performance = {

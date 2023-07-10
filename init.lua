@@ -2,7 +2,7 @@ if vim.loader then vim.loader.enable() end
 
 for _, source in ipairs {
 	"tireavim.options",
-	"tireavim.plugins",
+	"tireavim.lazy",
 	"tireavim.autocmds",
 	"tireavim.mappings",
 } do

@@ -1,13 +1,16 @@
 local utils = require "tireavim.utils"
+local is_available = utils.is_available
 
 local maps = { n = {}, i = {}, v = {}, t = {} }
 
 local sections = {
 	p = { desc = "Packages" },
+	f = { desc = "Find" },
 }
 
 -- Normal --
 -- Standard Operations
+maps.n[";"] = { ":", desc = "Enter Command" }
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
 maps.n["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" }
@@ -31,5 +34,25 @@ maps.n["<C-Up>"] = { "<cmd>resize -2<CR>", desc = "Resize split up" }
 maps.n["<C-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" }
 maps.n["<C-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" }
 maps.n["<C-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" }
+
+-- Telescope
+if is_available "telescope.nvim" then
+	maps.n["<leader>f"] = sections.f
+	maps.n["<leader>ff"] = { function() require('telescope.builtin').find_files() end, desc = "Find Files" }
+	maps.n["<leader>fb"] = { function() require('telescope.builtin').buffers() end, desc = "Buffers" }
+	maps.n["<leader>fg"] = { function() require('telescope.builtin').git_commits() end, desc = "Git Commits" }
+end
+
+-- Comment
+if is_available "Comment.nvim" then
+	maps.n["<leader>/"] = {
+		function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+		desc = "Comment line",
+	}
+	maps.v["<leader>/"] = {
+		"<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+		desc = "Toggle comment line"
+	}
+end
 
 utils.set_mappings(maps)
